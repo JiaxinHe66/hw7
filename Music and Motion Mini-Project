@@ -1,1 +1,130 @@
+var song;
+function preload(){
+  soundFormats('mp3', 'ogg');
+  splash = loadSound('sounds/sun.mp3');
+}
+// The coordinates of the point around which the circles should orbit
+var centerX1 = 350;
+var centerY1 = 250;
 
+// How far away from the center point the circle should orbit
+var distance1 = 80;
+var distance2 = 120;
+var distance3 = 30;
+var distance4 = 160;
+var distance5 = 200;
+var distance6 = 240;
+var distance7 = 280;
+var distance8 = 320;
+// How many degrees through the orbit we are
+var orbit1 = 0;
+var orbit2 = 0;
+var orbit3 = 0;
+var orbit4 = 0;
+var orbit5 = 0;
+var orbit6 = 0;
+var orbit7 = 0;
+var orbit8 = 0;
+
+
+function setup() {
+  createCanvas(700, 500);
+  sound.setVolume(0.5);
+  song.play();
+
+  // Use degree mode, as opposed to radians
+  angleMode(DEGREES);
+}
+
+function draw() {
+  background(150, 150, 255);
+  // draw the sun
+  fill(255, 255, 0);
+  noStroke();
+  ellipse(centerX1, centerY1, 80);
+  fill(255, 200, 0);
+  noStroke();
+  ellipse(centerX1, centerY1, 70);
+  fill(255, 0, 0);
+  noStroke();
+  ellipse(centerX1, centerY1, 50);
+  // draw the orbit1
+  noFill();
+  stroke(255);
+  ellipse(centerX1, centerY1, distance1*2);
+  // draw the orbit2
+  noFill();
+  stroke(255);
+  ellipse(centerX1, centerY1, distance1*3);
+  // draw the orbit3
+  noFill();
+  stroke(255);
+  ellipse(centerX1, centerY1, distance1*4);
+  // draw the orbit4
+  noFill();
+  stroke(255);
+  ellipse(centerX1, centerY1, distance1*5);
+  // draw the orbit5
+  noFill();
+  stroke(255);
+  ellipse(centerX1, centerY1, distance1*6);
+  // draw the orbit6
+  noFill();
+  stroke(255);
+  ellipse(centerX1, centerY1, distance1*7);
+
+
+  // Calculate where the orbiting circle is and draw it
+  var x1 = centerX1 + cos(orbit1) * distance1;
+  var y1 = centerY1 + sin(orbit1) * distance1;
+  var x2 = centerX1 + cos(orbit2) * distance2;
+  var y2 = centerY1 + sin(orbit2) * distance2;
+  var x4 = centerX1 + cos(orbit4) * distance4;
+  var y4 = centerY1 + sin(orbit4) * distance4;
+  var x5 = centerX1 + cos(orbit5) * distance5;
+  var y5 = centerY1 + sin(orbit5) * distance5;
+  var x6 = centerX1 + cos(orbit6) * distance6;
+  var y6 = centerY1 + sin(orbit6) * distance6;
+  var x7 = centerX1 + cos(orbit7) * distance7;
+  var y7 = centerY1 + sin(orbit7) * distance7;
+  
+  //draw the mercury
+  fill(255, 150, 0);
+  noStroke();
+  ellipse(x1, y1, 25);
+  //draw the venus
+  fill(230, 210, 100);
+  noStroke();
+  ellipse(x2, y2, 30);
+  //draw the earth
+  fill(0, 180, 255);
+  noStroke();
+  ellipse(x4, y4, 35); 
+  // moon
+  var x3 = x4 + cos(orbit3) * distance3;
+  var y3 = y4 + sin(orbit3) * distance3;
+  fill(255);
+  noStroke();
+  ellipse(x3, y3, 10);
+  //draw the Mars
+  fill(255, 0, 0);
+  noStroke();
+  ellipse(x5, y5, 25);
+  //draw the Jupiter
+  fill(200, 255, 0);
+  noStroke();
+  ellipse(x6, y6, 45);
+  //draw the Saturn
+  fill(255, 255, 200);
+  noStroke();
+  ellipse(x7, y7, 40);
+  // Advance the orbit one more degree
+  orbit1 += 1;
+  orbit2 += 0.5;
+  orbit3 += 1;
+  orbit4 += 0.4;
+  orbit5 += 0.7;
+  orbit6 += 0.6;
+  orbit7 += 0.7;
+  orbit8 += 0.3;
+}
