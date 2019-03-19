@@ -1,7 +1,7 @@
 var song;
 function preload(){
   soundFormats('mp3', 'ogg');
-  splash = loadSound('sounds/sun.mp3');
+  song = loadSound('sun.mp3');
 }
 // The coordinates of the point around which the circles should orbit
 var centerX1 = 350;
@@ -29,7 +29,7 @@ var orbit8 = 0;
 
 function setup() {
   createCanvas(700, 500);
-  sound.setVolume(0.5);
+  song.setVolume(0.5);
   song.play();
 
   // Use degree mode, as opposed to radians
